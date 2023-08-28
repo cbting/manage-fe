@@ -6,6 +6,7 @@ import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 import axios from 'axios'
 import config from './config'
+import request from './utils/request'
 
 
 console.log('环境变量： ',import.meta.env)
@@ -14,9 +15,12 @@ console.log('环境变量： ',import.meta.env)
 const app = createApp(App)
 // axios.defaults.baseURL
 // console.log(axios.defaults.baseURL)
-// console.log(config.baseApi)
-axios.get(config.mockApi + '/login').then((res)=>{
-  console.log(res)
-})
+// console.log(config)
+// axios.get(config.mockApi + '/login').then((res)=>{
+//   console.log(res)
+// })
+
+// 在app上全局挂载一个对象
+app.config.globalProperties.$request = request
 app.use(ElementPlus)
 app.use(router).mount('#app')

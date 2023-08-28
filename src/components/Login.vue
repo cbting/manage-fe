@@ -21,14 +21,29 @@ const goHome = ()=>{
 }
 </script> -->
 <script>
-  export default {
-    name: 'Login',
-    methods: {
-      goHome(){
-        this.$router.push('./welcome')
+import Welcome from './Welcome.vue'
+export default {
+  name: 'Login',
+  components:{
+    Welcome
+  },
+  mounted(){
+    this.$request({
+      method: 'get',
+      url: '/login',
+      data: {
+        name:'cbt',
       }
+    }).then((res)=>{
+      console.log(res)
+    })
+  },
+  methods: {
+    goHome(){
+      this.$router.push('./welcome')
     }
   }
+}
 </script>
 
 <style scoped>
