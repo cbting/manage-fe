@@ -21,5 +21,6 @@ export default{
   // env: 'dev',
   env,
   mock: true,
+  namespace: 'manager',
   ...EnvConfig[env]
 }
