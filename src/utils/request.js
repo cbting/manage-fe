@@ -51,7 +51,10 @@ function request(options){
   if(options.method.toLowerCase() === 'get'){
     options.params = options.data;
   }
-  
+  //设置的局部mock起作用
+  if(typeof options.mock != 'undefined'){
+    config.mock = options.mock
+  }
   if(config.env === 'prod'){
     service.defaults.baseURL = config.baseApi  //防止指向mockApi
   }
