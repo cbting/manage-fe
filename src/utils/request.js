@@ -13,7 +13,7 @@ const service = axios.create({
   baseURL: config.baseApi,
   timeout: 8000,
 })
-// 请求拦截 config防重名-》req
+// 请求拦截 config防重名->req
 service.interceptors.request.use((req)=>{
   //TODO
   const headers = req.headers;
@@ -28,7 +28,7 @@ service.interceptors.response.use((res)=>{
   if(code === 200){
     return data;
   }
-  else if(code === 40001){
+  else if(code === 50001){
     // ElMessage.error(msg)
     ElMessage.error(TOKEN_INVALID)
     // 跳转登录界面

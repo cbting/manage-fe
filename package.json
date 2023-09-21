@@ -6,15 +6,22 @@
   "scripts": {
     "dev": "vite --mode dev",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "eslint --fix --ext .js,.vue src/"
   },
   "dependencies": {
+    "@element-plus/icons-vue": "^2.1.0",
     "axios": "^1.5.0",
     "element-plus": "^2.3.12",
     "vue": "^3.3.4"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.2.3",
+    "@vue/cli-plugin-eslint": "^5.0.8",
+    "@vue/eslint-config-prettier": "^8.0.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^8.49.0",
+    "eslint-plugin-prettier": "^5.0.0",
     "eslint-plugin-vue": "^9.17.0",
     "sass": "^1.66.1",
     "vite": "^4.4.5",
