@@ -15,9 +15,7 @@
         :collapse="isCollapse"
         class="nav-menu"
       >
-        <!-- this is  -->
         <tree-menu :userMenu="userMenu"></tree-menu>
-        <!-- that is  -->
       </el-menu>
     </div>
     <div :class="['content-right', isCollapse ? 'fold' : 'unfold']">
@@ -26,7 +24,9 @@
           <div class="menu-fold" @click="toggle">
             <i class="el-icon-s-fold"></i>
           </div>
-          <div class="bread">面包屑</div>
+          <div class="bread">
+            <BreadCrumb />
+          </div>
         </div>
 
         <!-- <div class="info">用户</div> -->
@@ -36,12 +36,7 @@
             class="notice"
             type="danger"
           >
-            <!-- <i class="el-icon-bell"></i> -->
-            <el-icon>
-              <component is="Bell"></component>
-            </el-icon>
-
-            <!-- <el-icon ><Bell/></el-icon> -->
+            <el-icon><Bell /></el-icon>
           </el-badge>
           <el-dropdown @command="handleLogout">
             <span class="user-link">
@@ -71,10 +66,12 @@
 
 <script>
 import TreeMenu from "./TreeMenu.vue";
+import BreadCrumb from "./BreadCrumb.vue";
 export default {
   name: "Home",
   components: {
-    TreeMenu
+    TreeMenu,
+    BreadCrumb
   },
   data() {
     return {
