@@ -11,6 +11,7 @@ const EnvConfig = {
   test:{
     baseApi: '//test.futurefe.com/api',
     mockApi: 'https://www.fastmock.site/mock/cf528b81852e5883ba878cbd96bc38c0/api'
+    // https://www.fastmock.site/mock/c1c302e8baed9894c48c17e4738c092e/api
   },
   prod:{ 
     baseApi: '//futurefe.com/api',
@@ -20,7 +21,7 @@ const EnvConfig = {
 export default{
   // env: 'dev',
   env,
-  mock: true,
+  mock: false,
   namespace: 'manager',
   ...EnvConfig[env]
 }

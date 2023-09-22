@@ -2,6 +2,7 @@ import axios from "axios";
 import config from "./../config";
 import {ElMessage} from 'element-plus'
 import router from "../router";
+import storage from "./storage"
 /**
  * axios 二次封装
 */
@@ -17,7 +18,9 @@ const service = axios.create({
 service.interceptors.request.use((req)=>{
   //TODO
   const headers = req.headers;
-  if(!headers.Authorization) headers.Authorization = 'cbt'
+  console.log('userinfo: ',storage.getItem('userInfo'))
+  const {token} = storage.getItem('userInfo')
+  if(!headers.Authorization) headers.Authorization = 'Bearer '+token
   return req;
 })
 
@@ -38,7 +41,7 @@ service.interceptors.response.use((res)=>{
     return Promise.reject(TOKEN_INVALID)
   }
   else{
-    ELMessage.error(msg || NETWORK_ERROR)
+    ElMessage.error(msg || NETWORK_ERROR)
   }
 })
 /**
