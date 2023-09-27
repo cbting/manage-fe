@@ -1,58 +1,55 @@
-import {createRouter,createWebHashHistory} from 'vue-router'
-import Home from './../components/Home.vue'
-
+import { createRouter, createWebHashHistory } from "vue-router";
+import Home from "./../components/Home.vue";
 
 const routes = [
   {
-    name:'home',
-    path:'/', 
+    name: "home",
+    path: "/",
     meta: {
-      title: '首页'
+      title: "首页"
     },
     component: Home,
-    redirect: '/welcome',
+    redirect: "/welcome",
     children: [
       {
-        name: 'welcome',
-        path: '/welcome',
+        name: "welcome",
+        path: "/welcome",
         meta: {
-          title: '欢迎体验XXX后台管理系统'
+          title: "欢迎体验XXX后台管理系统"
         },
-        component:()=>import('./../views/Welcome.vue')
+        component: () => import("./../views/Welcome.vue")
       },
       {
-        name: 'user',
-        path: 'user',
+        name: "user",
+        path: "user",
         meta: {
-          title: '用户管理'
+          title: "用户管理"
         },
-        component:()=>import('./../views/Welcome.vue'),
-        children:[
+        component: () => import("./../views/User.vue"),
+        children: [
           {
-            name: 'info',
-            path: 'info',
+            name: "info",
+            path: "info",
             meta: {
-              title: '信息统计'
+              title: "信息统计"
             },
-            component:()=>import('./../views/Welcome.vue')
+            component: () => import("./../views/Welcome.vue")
           }
         ]
-      },
-      
+      }
     ]
   },
-  { 
-    name:'login',
-    path: '/login',
-    meta:{
-      title:'登录',
+  {
+    name: "login",
+    path: "/login",
+    meta: {
+      title: "登录"
     },
-    component:()=>import('./../views/Login.vue') //这种是按需加载
+    component: () => import("./../views/Login.vue") //这种是按需加载
   }
-   
-]
+];
 const router = createRouter({
   history: createWebHashHistory(),
   routes
-})
-export default router
+});
+export default router;

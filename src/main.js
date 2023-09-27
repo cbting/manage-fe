@@ -30,5 +30,5 @@ app.config.globalProperties.$api = api;
 for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
   app.component(key, component);
 }
-app.use(ElementPlus);
+app.use(ElementPlus, { size: "small" });
 app.use(router).use(store).mount("#app");
